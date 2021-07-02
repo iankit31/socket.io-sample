@@ -14,6 +14,10 @@ io.on('connection',(socket) => {
     socket.on('boom' , () =>{
          console.log('boom recive from socket id = ', socket.id)
     })
+
+    setInterval(() =>{ 
+        socket.emit('whizz')
+    },2000)
 })
 
 
