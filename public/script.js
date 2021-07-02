@@ -20,8 +20,12 @@ socket.on('logged_in', ()=>{
 $('#btnSendMsg').click(()=>{
    socket.emit('msg_send',{
       to: $('#inpToUser').val(),
-      msg: $('#inpMsg').val()
+      msg: $('#inpNewMsg').val()
    })
 })
 
 
+socket.on('msg_rcvd',(data) =>{
+   console.log(data.msg)
+   $('#ulMsgs').append($('<li>').text(data.msg))
+}) 
