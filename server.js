@@ -10,9 +10,10 @@ const io  = socketio(server)
 io.on('connection',(socket) => {
     console.log('connected with socket id = ', socket.id)
     
-    socket.on('msg_send' , (data) =>{
+    socket.on('login' , (data) =>{
         //  console.log('recived ', data.msg)
-        io.emit('msg_rcvd' , data)
+        socket.join(data.username)
+        socket.emit('logged_in')
     })
 
 })
