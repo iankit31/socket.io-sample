@@ -31,5 +31,7 @@ $('#btnSendMsg').click(()=>{
 
 socket.on('msg_rcvd',(data) =>{
    console.log(data.msg)
-   $('#ulMsgs').append($('<li>').text(data.msg))
+   $('#ulMsgs').append($('<li>').text(
+      `[${data.from}]: ${data.msg}`
+   ))
 }) 
